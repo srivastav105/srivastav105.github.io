@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>E Srivastav | Mechanical Design &amp; Simulation Engineer</title>
+  <meta name="description" content="E Srivastav, Mechanical Design Engineer. Machine design, FEA, modal analysis, drive sizing, GD&amp;T and cost engineering for automotive and aerospace.">
+  <meta property="og:title" content="E Srivastav | Mechanical Design &amp; Simulation Engineer">
+  <meta property="og:description" content="₹58,000 saved per machine. 70 kg taken out of a VMC headstock with FEA. Try the live simulations on the site.">
+  <meta property="og:image" content="images/profile.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%236a9bff' stroke-width='5' stroke-dasharray='4 3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%236a9bff'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg id="logo-gear" aria-hidden="true"></svg><span>E Srivastav</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Case studies</a>
+      <a href="#lab">Simulation lab</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="xh" id="xh" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="status"><i></i>Open to design engineering roles</span>
+        <h1 class="name">E <span class="outline">Sriva</span>stav</h1>
+        <p class="role"><b>Mechanical Design &amp; Simulation Engineer.</b> I design machine structures and drive systems, then prove them with FEA, so they come out lighter, cheaper and ready for production.</p>
+        <div class="typed" id="typed" aria-live="off">Static structural · von Mises stress</div>
+        <div class="fcf-wrap">
+          <span class="label">Looking for</span>
+          <div class="fcf" role="img" aria-label="Position tolerance frame: design engineering roles, datum A automotive, datum B aerospace">
+            <span class="sym" aria-hidden="true">⌖</span>
+            <span class="tol">Design Engineer</span>
+            <span>A</span>
+            <span>B</span>
+          </div>
+          <span class="fcf-note">Datum A: Automotive · Datum B: Aerospace</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#work">View case studies</a>
+          <a class="btn" href="#lab">Try the simulations</a>
+        </div>
+      </div>
+
+      <div class="viewport">
+        <div class="vp-bar">
+          <div class="vp-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="vp-tabs"><span>Static Structural</span><span>Solution</span><span class="on">Equivalent Stress</span></div>
+          <span class="vp-solved">Solved</span>
+        </div>
+        <canvas class="vp-canvas" id="fea" tabindex="0" aria-label="Live stress simulation of a steel cantilever. Move the pointer, or use the arrow keys, to move the load and change the force."></canvas>
+        <div class="vp-out" aria-live="off">
+          <div><span class="label">Load at</span><b id="fea-pos">240 mm</b></div>
+          <div><span class="label">Force</span><b id="fea-force">5.00 kN</b></div>
+          <div><span class="label">Max stress</span><b id="fea-stress">50.0 MPa</b></div>
+          <div><span class="label">Tip deflection</span><b id="fea-def">0.160 mm</b></div>
+        </div>
+        <p class="vp-hint">Move your cursor over the model (or tap it). Left–right moves the load, up–down changes the force. Steel cantilever 240 × 60 × 20 mm, solved with beam theory in your browser.</p>
+      </div>
+    </div>
+
+    <div class="metrics" aria-label="Key results">
+      <div class="metric">
+        <div class="dim-line" aria-hidden="true"></div>
+        <div class="metric-val" data-count="58000" data-prefix="₹">₹58,000</div>
+        <div class="metric-cap">saved per machine by removing the counterbalance cylinder</div>
+      </div>
+      <div class="metric">
+        <div class="dim-line" aria-hidden="true"></div>
+        <div class="metric-val" data-count="70" data-prefix="−" data-suffix=" kg">−70 kg</div>
+        <div class="metric-cap">headstock mass removed using static structural FEA</div>
+      </div>
+      <div class="metric">
+        <div class="dim-line" aria-hidden="true"></div>
+        <div class="metric-val" data-count="2" data-suffix=" series">2 series</div>
+        <div class="metric-cap">Gemini VMC machine series running my redesign</div>
+      </div>
+      <div class="metric">
+        <div class="dim-line" aria-hidden="true"></div>
+        <div class="metric-val" data-count="92" data-suffix="%">92%</div>
+        <div class="metric-cap">accuracy of my ANN vibration model against modal tests</div>
+      </div>
+    </div>
+  </div>
+  <div class="coords" id="coords" aria-hidden="true">X    0.0   Y    0.0   mm</div>
+</header>
+
+<main>
+  <section class="section" id="about" aria-labelledby="h-about">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">01</span><h2 id="h-about">About</h2><svg data-gear-pair aria-hidden="true"></svg></div>
+      <div class="about">
+        <figure class="portrait reveal">
+          <div class="frame">
+            <img src="images/profile.jpg" alt="Portrait of E Srivastav in a dark suit and tie" width="806" height="1038">
+            <div class="scan" aria-hidden="true"></div>
+          </div>
+          <span class="corner c1" aria-hidden="true"></span><span class="corner c2" aria-hidden="true"></span>
+          <span class="corner c3" aria-hidden="true"></span><span class="corner c4" aria-hidden="true"></span>
+          <span class="dimv" aria-hidden="true"><span>DETAIL A</span></span>
+          <figcaption><span>E Srivastav</span><span>Scale 1:1</span></figcaption>
+        </figure>
+        <div class="about-text reveal">
+          <p class="big">I take machine sub-systems from a client requirement to released drawings, and I use simulation to make them lighter and cheaper without losing stiffness.</p>
+          <p>For two years at Ace Designers I've designed twin spindle vertical machining centres: sizing ball screws, servo motors and LM guideways, selecting bought-out parts, and detailing drawings with GD&amp;T (ASME Y14.5) and tolerance stack-ups.</p>
+          <p>Before that I benchmarked electric motors for should-cost analysis at Bosch, and ran modal and harmonic FEA at IIT Bombay. I'm now training in aerospace stress methods with MSC Nastran and Patran, including buckling and composite laminates.</p>
+          <div class="facts">
+            <div><span class="label">Current role</span><strong>Executive Design Engineer, Ace Designers</strong></div>
+            <div><span class="label">CAD</span><strong>SolidWorks · CATIA V5 · Siemens NX</strong></div>
+            <div><span class="label">CAE</span><strong>ANSYS Workbench · MSC Nastran / Patran</strong></div>
+            <div><span class="label">Standard</span><strong>ASME Y14.5 GD&amp;T</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="work" aria-labelledby="h-work">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">02</span><h2 id="h-work">Case studies</h2><svg data-gear-pair aria-hidden="true"></svg></div>
+      <p class="section-lead reveal">Each project pairs the result with a working model you can play with.</p>
+      <div class="cases">
+
+        <article class="case reveal">
+          <div class="case-text">
+            <span class="case-num">CASE 01 · ACE DESIGNERS</span>
+            <h3>Counterbalance cylinder elimination</h3>
+            <div class="result">₹58,000 / machine</div>
+            <p>The vertical axis of the twin spindle VMC used a counterbalance cylinder to carry the head's weight. I redesigned and validated the drive system so the axis no longer needs it.</p>
+            <ol>
+              <li>Recalculated load, inertia and torque on the vertical axis</li>
+              <li>Re-sized the ball screw and servo drive to carry the head directly</li>
+              <li>Validated and released for Gemini Excel and Gemini Mini Excel</li>
+            </ol>
+            <div class="tags"><span>Drive sizing</span><span>Cost reduction</span><span>Design validation</span></div>
+          </div>
+          <div class="case-demo cb-figure after" id="cb-figure">
+            <div class="demo-bar">
+              <span class="label">Vertical axis schematic</span>
+              <div class="seg" role="group" aria-label="Show design">
+                <button type="button" data-cb="before" aria-pressed="false">Before</button>
+                <button type="button" data-cb="after" aria-pressed="true">After</button>
+              </div>
+            </div>
+            <svg class="cb" viewBox="0 0 420 270" role="img" aria-label="Schematic of the VMC vertical axis: column, servo motor, ball screw and spindle head, with the counterbalance cylinder removed in the new design">
+              <line class="ground" x1="20" y1="252" x2="400" y2="252"/>
+              <path class="hatch" d="M30 262l10-10M50 262l10-10M70 262l10-10M90 262l10-10M110 262l10-10M130 262l10-10M150 262l10-10M170 262l10-10M190 262l10-10M210 262l10-10M230 262l10-10M250 262l10-10M270 262l10-10M290 262l10-10M310 262l10-10M330 262l10-10M350 262l10-10M370 262l10-10M390 262l10-10"/>
+              <rect class="part" x="40" y="40" width="60" height="212"/>
+              <rect class="part" x="50" y="8" width="40" height="32"/>
+              <line class="screw" x1="70" y1="40" x2="70" y2="246"/>
+              <g class="moving">
+                <line class="rod cyl-group" x1="290" y1="18" x2="290" y2="70"/>
+                <rect class="part" x="60" y="88" width="40" height="22"/>
+                <rect class="head" x="100" y="70" width="210" height="58"/>
+                <text class="txt txt-ink" x="112" y="104">Spindle head</text>
+                <rect class="part" x="190" y="128" width="30" height="50"/>
+                <polygon class="part" points="196,178 214,178 209,196 201,196"/>
+              </g>
+              <g class="cyl-group">
+                <rect class="cyl" x="278" y="6" width="24" height="56" rx="3"/>
+                <text class="txt" x="312" y="24">Counter-</text>
+                <text class="txt" x="312" y="38">balance</text>
+                <text class="txt" x="312" y="52">cylinder</text>
+              </g>
+              <path class="cross" d="M268 2L312 66M312 2L268 66"/>
+              <text class="txt tag-before" x="100" y="28">Servo motor</text>
+              <text class="txt tag-after" x="100" y="28">Servo re-sized</text>
+              <text class="txt tag-after" x="312" y="80" style="fill: var(--load)">Removed</text>
+            </svg>
+            <div class="demo-foot">
+              <div class="read cb-saving"><span class="label">Cost per machine</span><b class="accent"><span class="a">−₹58,000</span><span class="b">Baseline</span></b></div>
+              <div class="read"><span class="label">Applied to</span><b>Gemini Excel · Gemini Mini Excel</b></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-text">
+            <span class="case-num">CASE 02 · ACE DESIGNERS</span>
+            <h3>Headstock lightweighting with FEA</h3>
+            <div class="result">−70 kg · ₹6,000 / machine</div>
+            <p>On the Gemini Junior Excel I ran a static structural analysis of the whole machine to find where the headstock actually carries load. Material outside those load paths was doing nothing, so it came out.</p>
+            <ol>
+              <li>Static structural FEA of the full machine assembly</li>
+              <li>Mapped load paths and low-stress regions in the headstock casting</li>
+              <li>Removed non-functional material while holding stiffness targets</li>
+            </ol>
+            <div class="tags"><span>Static FEA</span><span>Lightweighting</span><span>Casting redesign</span></div>
+          </div>
+          <div class="case-demo">
+            <div class="demo-bar">
+              <span class="label">Material removal, lowest stress first</span>
+              <button class="btn" type="button" id="lw-play" style="padding: 9px 12px; font-size: 11px;">Run optimisation</button>
+            </div>
+            <canvas class="demo-canvas" id="lw" aria-label="Stress-coloured plate. Low-stress cells disappear as material is removed, leaving the load paths."></canvas>
+            <div class="demo-foot">
+              <div class="range">
+                <label class="label" for="lw-slider">Material removed</label>
+                <input type="range" id="lw-slider" min="0" max="100" value="100">
+              </div>
+              <div class="read"><span class="label">Mass saved</span><b class="accent" id="lw-mass">70 kg</b></div>
+              <div class="read"><span class="label">Cost saved</span><b id="lw-cost">₹6,000</b></div>
+              <span class="demo-note">An illustration of the method, not the production casting.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-text">
+            <span class="case-num">CASE 03 · BOSCH GLOBAL SOFTWARE TECHNOLOGIES</span>
+            <h3>Electric motor cost benchmarking</h3>
+            <div class="result">MAHLE vs Mingyang</div>
+            <p>I led a teardown of two electric motors to show how differences in construction, materials and manufacturing process drive their cost. The documentation fed the cost engineering team's should-cost models.</p>
+            <ol>
+              <li>Systematic disassembly and reverse engineering of both motors</li>
+              <li>Part-by-part record of materials and manufacturing processes</li>
+              <li>Flagged high-cost features as design-improvement targets</li>
+            </ol>
+            <div class="tags"><span>Teardown</span><span>Should-cost</span><span>Benchmarking</span></div>
+          </div>
+          <div class="case-demo">
+            <div class="demo-bar">
+              <span class="label">Motor teardown</span>
+              <button class="btn" type="button" id="explode" aria-pressed="false" style="padding: 9px 12px; font-size: 11px;">Explode view</button>
+            </div>
+            <svg class="motor" id="motor" viewBox="0 -40 400 270" role="img" aria-label="Electric motor cross-section that separates into housing, stator, rotor, bearings and end caps">
+              <g class="g-house">
+                <rect class="p" x="116" y="38" width="168" height="124" rx="6"/>
+                <path class="p" d="M130 38v-8M150 38v-8M170 38v-8M190 38v-8M210 38v-8M230 38v-8M250 38v-8M270 38v-8" fill="none"/>
+                <text class="lbl" x="200" y="18">Housing</text>
+              </g>
+              <g class="g-stator">
+                <rect class="pa" x="128" y="50" width="144" height="20"/>
+                <rect class="pa" x="128" y="130" width="144" height="20"/>
+                <path class="coil" d="M128 56c-14 0-14 18 0 18M128 126c-14 0-14 18 0 18M272 56c14 0 14 18 0 18M272 126c14 0 14 18 0 18"/>
+                <text class="lbl" x="200" y="64" style="fill: var(--accent)">Stator + windings</text>
+              </g>
+              <g class="g-rotor">
+                <rect class="shaft" x="40" y="96" width="320" height="8" rx="2"/>
+                <rect class="p" x="144" y="76" width="112" height="48"/>
+                <path class="p" d="M160 76v48M176 76v48M192 76v48M208 76v48M224 76v48M240 76v48" fill="none"/>
+                <text class="lbl" x="200" y="142">Rotor + shaft</text>
+              </g>
+              <g class="g-bearl"><rect class="p" x="102" y="86" width="14" height="28" rx="2"/><text class="lbl" x="109" y="132">Bearing</text></g>
+              <g class="g-bearr"><rect class="p" x="284" y="86" width="14" height="28" rx="2"/><text class="lbl" x="291" y="132">Bearing</text></g>
+              <g class="g-capl"><rect class="p" x="90" y="46" width="12" height="108" rx="2"/><text class="lbl" x="96" y="172">End cap</text></g>
+              <g class="g-capr"><rect class="p" x="298" y="46" width="12" height="108" rx="2"/><text class="lbl" x="304" y="172">End cap</text></g>
+            </svg>
+            <div class="demo-foot">
+              <div class="read"><span class="label">Compared</span><b>Construction · Materials · Process</b></div>
+              <span class="demo-note">Generic motor layout for illustration.</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lab" aria-labelledby="h-lab">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">03</span><h2 id="h-lab">Simulation lab</h2><svg data-gear-pair aria-hidden="true"></svg></div>
+      <p class="section-lead reveal">Two of the calculations I use every day, running live in your browser. Pick a mode shape, or set the motor speed and drag the blue driver gear by hand.</p>
+      <div class="lab">
+        <div class="lab-card reveal">
+          <div class="lab-head">
+            <span class="label">Modal analysis · from my IIT Bombay research</span>
+            <h3>Cantilever mode shapes</h3>
+            <p>The first three bending modes of a steel cantilever, 300 × 40 × 10 mm, from Euler–Bernoulli beam theory. Circles mark the nodes, where the beam doesn't move.</p>
+          </div>
+          <div class="lab-controls">
+            <div class="mode-btns" role="group" aria-label="Mode shape">
+              <button type="button" data-mode="0" aria-pressed="true">Mode 1<span class="f"></span></button>
+              <button type="button" data-mode="1" aria-pressed="false">Mode 2<span class="f"></span></button>
+              <button type="button" data-mode="2" aria-pressed="false">Mode 3<span class="f"></span></button>
+            </div>
+          </div>
+          <canvas class="lab-canvas" id="modes" aria-label="Animated mode shape of a cantilever beam"></canvas>
+          <p class="lab-foot">Natural frequency: <b class="mono" id="mode-freq">90.6 Hz</b>. Knowing these frequencies keeps machine structures away from resonance.</p>
+        </div>
+
+        <div class="lab-card reveal">
+          <div class="lab-head">
+            <span class="label">Drive sizing</span>
+            <h3>Gear train speeds</h3>
+            <p>Five spur gears, module 6. Each speed follows the tooth ratio and each mesh reverses direction. Drag the blue driver gear to turn the train yourself.</p>
+          </div>
+          <div class="lab-controls">
+            <div class="range">
+              <label class="label" for="rpm">Motor speed</label>
+              <input type="range" id="rpm" min="0" max="3000" step="50" value="1200">
+              <output id="rpm-out" for="rpm">1,200 rpm</output>
+            </div>
+          </div>
+          <div class="drive">
+            <svg id="drive-gears" role="img" aria-label="Gear train of five meshing spur gears"></svg>
+            <div class="drive-side">
+              <table class="drive-table">
+                <thead><tr><th>Gear</th><th>z</th><th>rpm</th><th>Dir</th></tr></thead>
+                <tbody id="drive-table"></tbody>
+              </table>
+            </div>
+          </div>
+          <p class="lab-foot">Output speed = input speed × z<sub>driver</sub> / z<sub>driven</sub>, chained through each mesh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="experience" aria-labelledby="h-exp">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">04</span><h2 id="h-exp">Experience</h2><span class="label">Revision history, latest first</span><svg data-gear-pair aria-hidden="true"></svg></div>
+      <div class="revs reveal">
+        <div class="rev current">
+          <div class="rev-letter">C</div>
+          <div class="rev-body">
+            <div class="rev-head"><h3>Executive Design Engineer</h3><span class="label">Aug 2024 – Present</span></div>
+            <div class="rev-org">Ace Designers Ltd. (MCD), Bangalore</div>
+            <ul>
+              <li><b>Eliminated the counterbalance cylinder</b> on the vertical axis by re-sizing the drive system, saving ₹58,000 per machine on Gemini Excel and Gemini Mini Excel.</li>
+              <li><b>Reduced headstock mass by 70 kg</b> on Gemini Junior Excel using static structural FEA, saving about ₹6,000 per machine.</li>
+              <li>Sized and selected ball screws, servo motors and LM guideways from load, speed, inertia and life calculations.</li>
+              <li>Selected bought-out parts and worked with suppliers and procurement on sourcing, cost and lead time.</li>
+              <li>Applied GD&amp;T (ASME Y14.5) and tolerance stack-ups to cut assembly errors and improve interchangeability.</li>
+              <li>Led DFM/DFA reviews with production teams to improve assembly sequence, serviceability and lead time.</li>
+              <li>Value-engineered guarding and coolant sub-systems for lower material cost.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rev">
+          <div class="rev-letter">B</div>
+          <div class="rev-body">
+            <div class="rev-head"><h3>Engineering Intern</h3><span class="label">Feb 2024 – May 2024</span></div>
+            <div class="rev-org">Bosch Global Software Technologies, Bangalore</div>
+            <ul>
+              <li>Led cost benchmarking of two electric motors (MAHLE and Mingyang) through teardown and reverse engineering.</li>
+              <li>Documented assemblies, materials and processes for should-cost analysis and flagged high-cost features.</li>
+              <li>Summarised sensor patents and competitor technologies for R&amp;D design decisions.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rev">
+          <div class="rev-letter">A</div>
+          <div class="rev-body">
+            <div class="rev-head"><h3>Fellow Researcher</h3><span class="label">Mar 2023 – Jan 2024</span></div>
+            <div class="rev-org">TIH Foundation, IIT Bombay</div>
+            <ul>
+              <li>Ran modal and harmonic analysis of a wind turbine structure in ANSYS Workbench to find critical resonance frequencies.</li>
+              <li>Built an ANN in MATLAB that predicted vibration response with 92% accuracy against physical modal tests.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="h-skills">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">05</span><h2 id="h-skills">Skills &amp; tools</h2><svg data-gear-pair aria-hidden="true"></svg></div>
+      <div class="skills">
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>Design &amp; drafting</h3>
+          <div class="chips"><span>Product design</span><span>3D modelling</span><span>2D drawings</span><span>GD&amp;T ASME Y14.5</span><span>Tolerance stack-up</span><span>DFM / DFA</span><span>Design reviews</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></span>Simulation (CAE)</h3>
+          <div class="chips"><span>Static structural</span><span>Modal</span><span>Harmonic</span><span>Beam analysis</span><span>Buckling SOL 105</span><span>Composites CLT</span><span>FEA mass reduction</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span>Mechanisms &amp; drives</h3>
+          <div class="chips"><span>Ball screw selection</span><span>Servo sizing</span><span>LM guideways</span><span>Load &amp; inertia calcs</span><span>Bought-out parts</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M17 7H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg></span>Cost &amp; weight</h3>
+          <div class="chips"><span>Value engineering</span><span>Lightweighting</span><span>Should-cost</span><span>Teardown</span><span>Benchmarking</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13"/><path d="M8 21h8M12 17v4"/></svg></span>Software</h3>
+          <div class="chips"><span>SolidWorks</span><span>CATIA V5</span><span>Siemens NX</span><span>AutoCAD</span><span>ANSYS Workbench</span><span>MSC Nastran</span><span>MSC Patran</span><span>MATLAB</span><span>SAP</span><span>Minitab</span></div>
+        </div>
+        <div class="skill reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h9M8 3v2M6 5c0 4 3 7 7 8M11 5c-1 4-4 7-7 8M13 21l4-9 4 9M14.5 18h5"/></svg></span>Languages</h3>
+          <div class="chips"><span>English</span><span>Hindi</span><span>Kannada</span><span>Telugu</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="education" aria-labelledby="h-edu">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="zone-id">06</span><h2 id="h-edu">Education</h2><svg data-gear-pair aria-hidden="true"></svg></div>
+      <div class="table-wrap reveal">
+        <table class="edu">
+          <thead><tr><th>Qualification</th><th>Institution</th><th>Years</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>B.E., Mechanical Engineering</td><td>The National Institute of Engineering, Mysuru</td><td class="num">2021 – 2024</td><td class="num">8.42 / 10</td></tr>
+            <tr><td>Diploma, Mechanical Engineering</td><td>Sandur Polytechnic, Sandur</td><td class="num">2018 – 2021</td><td class="num">91.42%</td></tr>
+            <tr><td>SSLC</td><td>Vijayanagara High School</td><td class="num">2016 – 2017</td><td class="num">78.72%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="certs reveal">
+        <li>Stress Engineering: Structural Analysis with MSC Nastran &amp; Patran (ongoing)</li>
+        <li>ANSYS Workbench structural and dynamic analysis (research project, IIT Bombay)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="h-contact">
+    <div class="wrap contact">
+      <div class="reveal">
+        <span class="label">07 · Contact</span>
+        <h2 id="h-contact">Let's build something lighter, stronger and cheaper.</h2>
+        <p>I'm open to design engineering roles in automotive and aerospace. Email is the fastest way to reach me.</p>
+      </div>
+      <div class="contact-list reveal">
+        <div class="chip">
+          <div class="k"><span class="label">Email</span><a class="t" href="mailto:esrivastav15@gmail.com">esrivastav15@gmail.com</a></div>
+          <button type="button" id="copy-email" data-copy="esrivastav15@gmail.com">Copy</button>
+        </div>
+        <div class="chip">
+          <div class="k"><span class="label">Phone</span><a class="t" href="tel:+917204506105">+91 72045 06105</a></div>
+          <button type="button" id="copy-phone" data-copy="+917204506105">Copy</button>
+        </div>
+        <div class="chip">
+          <div class="k"><span class="label">Location</span><span class="t">Bangalore, India</span></div>
+        </div>
+        <a class="btn primary" href="mailto:esrivastav15@gmail.com?subject=Design%20engineering%20role" style="justify-content: center;">Email me about a role</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="titleblock">
+  <div class="wrap">
+    <div class="grid">
+      <div><span class="label">Drawn by</span><span class="v">E Srivastav · Mechanical Design Engineer</span></div>
+      <div><span class="label">Rev</span><span class="v">C</span></div>
+      <div><span class="label">Scale</span><span class="v">1:1</span></div>
+      <div><span class="label">Date</span><span class="v" id="year">2026</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/cae.js"></script>
+<script src="js/fea.js"></script>
+<script src="js/modes.js"></script>
+<script src="js/lightweight.js"></script>
+<script src="js/gears.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
